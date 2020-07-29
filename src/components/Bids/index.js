@@ -1,17 +1,13 @@
 import React from "react";
-// import Button from "react-bootstrap/Button";
 
-export default function Bids(props) {
-  console.log("props", props);
+export default function Bids({ id, bids }) {
   return (
-    <div>
-      {props.artwork.map((bid) => {
-        return (
-          <div>
-            <h3>{bid.bids}</h3>
-          </div>
-        );
-      })}
+    <div key={id}>
+      hier komt bids
+      <span role="img" aria-labelledby="hamer">
+        🔨
+      </span>
+      {bids.email}
     </div>
   );
 }

@@ -148,11 +148,11 @@ You will be provided with a wireframe that shows an overview of the app along wi
 | ------------------------------------------------------------------------------ | ------ |
 | The frontend route `/` displays a list of artworks                             | 1 1    |
 | The artworks are fetched from the server                                       | 1 1    |
-| The artworks are displayed with their number of bids they have in the database | 2      |
+| The artworks are displayed with their number of bids they have in the database | 2 2    |
 | An array of artworks is stored and managed by redux                            | 1 1    |
 | A selectors and actions are defined in a seperate files                        | 1 1    |
 | Each artwork has a `View details` button, it links to a artwork's details      | 1 1    |
-| Total                                                                          | 7      |
+| Total                                                                          | 7 7    |
 
 ### 2. As a user interested in buying people's art, I want to see the details of an artwork, so I know what it costs
 
@@ -161,8 +161,8 @@ You will be provided with a wireframe that shows an overview of the app along wi
 
 | Criteria                                                                       | Points |
 | ------------------------------------------------------------------------------ | ------ |
-| The frontend route `/artworks/:id` displays a detail page for an artwork       | 1      |
-| The artworks are displayed with a title, image and the number of hearts it has | 1      |
+| The frontend route `/artworks/:id` displays a detail page for an artwork       | 1 1    |
+| The artworks are displayed with a title, image and the number of hearts it has | 1 1    |
 | The bids belonging to the artwork are displayed with email and amount          | 1      |
 | The artwork and its bids are fetched from the server                           | 1      |
 | Total                                                                          | 4      |
@@ -175,8 +175,8 @@ You will be provided with a wireframe that shows an overview of the app along wi
 
 | Criteria                                                                                     | Points |
 | -------------------------------------------------------------------------------------------- | ------ |
-| On the artwork's detail page we see a button with `give heart`                               | 1      |
-| When the `give heart` button is clicked the number of hearts changes on the page             | 1      |
+| On the artwork's detail page we see a button with `give heart`                               | 1 1    |
+| When the `give heart` button is clicked the number of hearts changes on the page             | 1 1    |
 | Clicking the `give heart` button sends a PATCH request to the server                         | 1      |
 | Clicking the `give heart` button updates the `hearts` property of an artwork in the database | 1      |
 | The number of hearts an artwork has is also updated in the list of artworks on `/`           | 1      |

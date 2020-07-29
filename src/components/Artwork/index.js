@@ -6,16 +6,24 @@ export default function Artwork({
   id,
   title,
   imageUrl,
-  minimumBid,
   bids,
+  hearts,
   showLink,
 }) {
+  const nrBids = bids.length;
+
   return (
     <div key={id}>
       <h1>{title}</h1>
       <img className="artImage" src={imageUrl} alt="art" />
-      <p>minimumBid: {minimumBid}</p>
-      <p>{bids}</p>
+      <span role="img" aria-labelledby="heart">
+        💖
+      </span>
+      <span role="img" aria-labelledby="hamer">
+        🔨
+      </span>
+      {nrBids}
+
       {showLink ? (
         <Link to={`/artworks/${id}`}>
           <Button>View details</Button>

@@ -10,7 +10,9 @@
 
 .artImage {
   width: 100%;
+  max-width: 27rem;
   max-height: 15rem;
+  margin-bottom: 1rem;
 }
 .jumbotron {
   height: 2rem;

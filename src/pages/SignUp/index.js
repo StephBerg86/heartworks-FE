@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
 
 export default function SignUp() {
   const [name, setName] = useState("");

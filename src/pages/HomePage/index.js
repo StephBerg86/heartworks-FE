@@ -20,7 +20,8 @@ export default function HomePage() {
             key={hp.id}
             id={hp.id}
             title={hp.title}
-            bids={hp.minimumBid}
+            bids={hp.bids}
+            hearts={hp.hearts}
             imageUrl={hp.imageUrl}
             showLink={true}
           />
