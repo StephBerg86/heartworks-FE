@@ -13,6 +13,7 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isArtist, setIsArtist] = useState(false);
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
@@ -25,11 +26,10 @@ export default function SignUp() {
 
   function submitForm(event) {
     event.preventDefault();
-
-    dispatch(signUp(name, email, password));
-
+    dispatch(signUp(name, email, isArtist, password));
     setEmail("");
     setPassword("");
+    setIsArtist(false);
     setName("");
   }
 
@@ -61,7 +61,11 @@ export default function SignUp() {
           </Form.Text>
         </Form.Group>
         <InputGroup.Prepend>
-          <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+          <InputGroup.Checkbox
+            aria-label="Checkbox"
+            checked={isArtist}
+            onChange={() => setIsArtist(!isArtist)}
+          />
           I am an artist
         </InputGroup.Prepend>{" "}
         <Form.Group controlId="formBasicPassword">

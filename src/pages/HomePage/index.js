@@ -13,7 +13,7 @@ export default function HomePage() {
   }, [dispatch]);
 
   return (
-    <div className="test">
+    <div className="displayArt">
       {homepage.map((hp) => {
         return (
           <Artwork

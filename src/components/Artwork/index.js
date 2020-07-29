@@ -19,11 +19,12 @@ export default function Artwork({
       <span role="img" aria-labelledby="heart">
         💖
       </span>
+      {hearts}
       <span role="img" aria-labelledby="hamer">
         🔨
       </span>
       {nrBids}
-
+      <br />
       {showLink ? (
         <Link to={`/artworks/${id}`}>
           <Button>View details</Button>

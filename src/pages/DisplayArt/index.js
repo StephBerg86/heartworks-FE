@@ -6,10 +6,14 @@ import { fetchArtworkById } from "../../store/details/actions";
 import { selectArtworkDetails } from "../../store/details/selectors";
 import Bids from "../../components/Bids";
 import Hearts from "../../components/Hearts";
+import { selectHearts } from "../../store/details/selectors";
+import { fetchedHearts } from "../../store/details/actions";
 
 export default function DisplayArt() {
   const { id } = useParams();
   const artwork = useSelector(selectArtworkDetails);
+  const hearts = useSelector(selectHearts);
+  console.log("hearts", hearts);
   const dispatch = useDispatch();
   const initial_numLikes = 0;
   const [numLikes, set_numLikes] = useState(initial_numLikes);
@@ -22,7 +26,9 @@ export default function DisplayArt() {
     dispatch(fetchArtworkById(id));
   }, [dispatch, id]);
 
-  console.log("artwork in index", artwork);
+  useEffect(() => {
+    dispatch(fetchedHearts(id));
+  }, [dispatch, id]);
 
   return (
     <>
@@ -34,8 +40,8 @@ export default function DisplayArt() {
         bids={artwork.bids}
         minimumBid={artwork.minimumBid}
       />
-      <Bids key={artwork.id} bids={artwork.bids} />
-      <Hearts hearts={artwork.hearts} nrLikes={numLikes} incr={increment} />
+      <Hearts hearts={hearts} nrLikes={numLikes} incr={increment} />
+      <Bids bid={artwork.bids} />
     </>
   );
 }

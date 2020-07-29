@@ -7,9 +7,11 @@ import { selectToken } from "../../store/user/selectors";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+import { selectIsArtist } from "../../store/user/selectors";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
+  const artist = useSelector(selectIsArtist);
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
@@ -25,7 +27,7 @@ export default function Navigation() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/" linkText="Artworks" />
-          {token ? (
+          {token && artist ? (
             <NavbarItem path="/auction" linkText="Start an auction" />
           ) : null}
 

@@ -5,20 +5,24 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import { useDispatch } from "react-redux";
 import { postArt } from "../../store/user/actions";
+import { selectId } from "../../store/user/selectors";
+import { useSelector } from "react-redux";
 
-export default function MyHomepageForm() {
+export default function AuctionForm() {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [minimumBid, setMinimumBid] = useState("");
   const [imageUrl, setImageUrl] = useState(
     "https://source.unsplash.com/1600x900/?"
   );
+  const userId = useSelector(selectId);
 
   function submitForm(event) {
     event.preventDefault();
 
-    // console.log(name, content, imageUrl);
-    dispatch(postArt(title, minimumBid, imageUrl));
+    dispatch(postArt(title, minimumBid, imageUrl, userId));
+    setTitle("");
+    setMinimumBid("");
   }
   return (
     <Form as={Col} md={{ span: 6, offset: 3 }}>
