@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import Artwork from "../../components/Artwork";
 import Bids from "../../components/Bids";
-import { fetchArtworkById } from "../../store/bids/actions";
-import { selectArtworkDetails } from "../../store/bids/selectors";
+import { fetchArtworkById } from "../../store/details/actions";
+import { selectArtworkDetails } from "../../store/details/selectors";
 
 export default function DisplayArt() {
   const { id } = useParams();
@@ -19,7 +19,6 @@ export default function DisplayArt() {
 
   return (
     <>
-      hi test
       <Artwork
         id={artwork.id}
         title={artwork.title}

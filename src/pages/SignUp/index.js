@@ -6,7 +6,9 @@ import { signUp } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -40,7 +42,7 @@ export default function SignUp() {
           <Form.Label>Name</Form.Label>
           <Form.Control
             value={name}
-            onChange={event => setName(event.target.value)}
+            onChange={(event) => setName(event.target.value)}
             type="text"
             placeholder="Enter name"
             required
@@ -50,7 +52,7 @@ export default function SignUp() {
           <Form.Label>Email address</Form.Label>
           <Form.Control
             value={email}
-            onChange={event => setEmail(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             type="email"
             placeholder="Enter email"
             required
@@ -59,12 +61,15 @@ export default function SignUp() {
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-
+        <InputGroup.Prepend>
+          <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+          I am an artist
+        </InputGroup.Prepend>{" "}
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             value={password}
-            onChange={event => setPassword(event.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
             type="password"
             placeholder="Password"
             required

@@ -6,7 +6,6 @@ import { fetchArtwork } from "../../store/artwork/actions";
 
 export default function HomePage() {
   const homepage = useSelector(selectArtwork);
-  console.log("hp.bids", homepage);
   const dispatch = useDispatch();
 
   useEffect(() => {

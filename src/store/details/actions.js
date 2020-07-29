@@ -1,8 +1,9 @@
-import { apiUrl } from "../../config/constants";
 import axios from "axios";
+import { apiUrl } from "../../config/constants";
 
 export const FETCH_ARTWORK_DETAILS = "FETCH_ARTWORK_DETAILS";
-export const fetchArtworkDetails = (artwork) => ({
+
+const fetchArtworkDetails = (artwork) => ({
   type: FETCH_ARTWORK_DETAILS,
   payload: artwork,
 });
