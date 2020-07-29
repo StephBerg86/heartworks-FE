@@ -2,9 +2,9 @@ import { apiUrl, DEFAULT_PAGINATION_LIMIT } from "../../config/constants";
 import axios from "axios";
 
 export const FETCH_ARTWORK_SUCCESS = "FETCH_ARTWORK_SUCCESS";
-export const fetchArtworkSuccess = (homepages) => ({
+export const fetchArtworkSuccess = (artwork) => ({
   type: FETCH_ARTWORK_SUCCESS,
-  payload: homepages,
+  payload: artwork,
 });
 
 export const fetchArtwork = () => {

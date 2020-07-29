@@ -1,27 +1,27 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken } from "./selectors";
+import { selectToken, selectUser } from "./selectors";
 import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
-  setMessage
+  setMessage,
 } from "../appState/actions";
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
 export const LOG_OUT = "LOG_OUT";
 
-const loginSuccess = userWithToken => {
+const loginSuccess = (userWithToken) => {
   return {
     type: LOGIN_SUCCESS,
-    payload: userWithToken
+    payload: userWithToken,
   };
 };
 
-const tokenStillValid = userWithoutToken => ({
+const tokenStillValid = (userWithoutToken) => ({
   type: TOKEN_STILL_VALID,
-  payload: userWithoutToken
+  payload: userWithoutToken,
 });
 
 export const logOut = () => ({ type: LOG_OUT });
@@ -33,7 +33,7 @@ export const signUp = (name, email, password) => {
       const response = await axios.post(`${apiUrl}/signup`, {
         name,
         email,
-        password
+        password,
       });
 
       dispatch(loginSuccess(response.data));
@@ -58,7 +58,7 @@ export const login = (email, password) => {
     try {
       const response = await axios.post(`${apiUrl}/login`, {
         email,
-        password
+        password,
       });
 
       dispatch(loginSuccess(response.data));
@@ -90,7 +90,7 @@ export const getUserWithStoredToken = () => {
       // if we do have a token,
       // check wether it is still valid or if it is expired
       const response = await axios.get(`${apiUrl}/me`, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       });
 
       // token is still valid
@@ -107,5 +107,35 @@ export const getUserWithStoredToken = () => {
       dispatch(logOut());
       dispatch(appDoneLoading());
     }
+  };
+};
+export const ART_POST_SUCCESS = "ART_POST_SUCCESS";
+export const artPostSuccess = (art) => ({
+  type: ART_POST_SUCCESS,
+  payload: art,
+});
+
+export const postArt = (title, minimumBid, imageUrl) => {
+  return async (dispatch, getState) => {
+    const { artwork, token } = selectUser(getState());
+    // console.log(name, content, imageUrl);
+    dispatch(appLoading());
+
+    const response = await axios.post(
+      `${apiUrl}/artwork/${artwork.id}`,
+      {
+        title,
+        minimumBid,
+        imageUrl,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log("Yep!", response);
+    dispatch(artPostSuccess(response.data));
   };
 };

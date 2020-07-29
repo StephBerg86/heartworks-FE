@@ -1,4 +1,3 @@
-export function selectHomepages(state) {
-  console.log("state, find HP", state);
+export function selectArtwork(state) {
   return state.artwork;
 }

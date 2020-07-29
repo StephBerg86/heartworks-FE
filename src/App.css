@@ -1,4 +1,17 @@
+.test {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 3fr));
+  padding: 2rem 0rem;
+  width: 80%;
+  margin: auto;
+  row-gap: 2rem;
+  column-gap: 1rem;
+}
+
 .artImage {
-  max-width: 25%;
-  text-align: left;
+  width: 100%;
+  max-height: 15rem;
+}
+.jumbotron {
+  height: 2rem;
 }

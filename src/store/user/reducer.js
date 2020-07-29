@@ -1,9 +1,14 @@
-import { LOG_OUT, LOGIN_SUCCESS, TOKEN_STILL_VALID } from "./actions";
+import {
+  LOG_OUT,
+  LOGIN_SUCCESS,
+  TOKEN_STILL_VALID,
+  ART_POST_SUCCESS,
+} from "./actions";
 
 const initialState = {
   token: localStorage.getItem("token"),
   name: null,
-  email: null
+  email: null,
 };
 
 export default (state = initialState, action) => {
@@ -19,6 +24,14 @@ export default (state = initialState, action) => {
     case TOKEN_STILL_VALID:
       return { ...state, ...action.payload };
 
+    case ART_POST_SUCCESS:
+      return {
+        ...state,
+        artwork: {
+          ...state.artwork,
+          bids: [...state.artwork.bids, action.payload],
+        },
+      };
     default:
       return state;
   }
