@@ -163,9 +163,9 @@ You will be provided with a wireframe that shows an overview of the app along wi
 | ------------------------------------------------------------------------------ | ------ |
 | The frontend route `/artworks/:id` displays a detail page for an artwork       | 1 1    |
 | The artworks are displayed with a title, image and the number of hearts it has | 1 1    |
-| The bids belonging to the artwork are displayed with email and amount          | 1      |
-| The artwork and its bids are fetched from the server                           | 1      |
-| Total                                                                          | 4      |
+| The bids belonging to the artwork are displayed with email and amount          | 1 1    |
+| The artwork and its bids are fetched from the server                           | 1 1    |
+| Total                                                                          | 4 4    |
 
 ### 3. As a user I want to give people hearts for their artwork, so I can encourage them to make more art
 
@@ -218,17 +218,17 @@ You will be provided with a wireframe that shows an overview of the app along wi
 | ----------------------------------------------------------------------- | ------- |
 | There is a link with `Start an auction` in the navbar                   | 0.5 0.5 |
 | A user can only see this link when you are logged in                    | 0.5 0.5 |
-| A user can only see this if the user object contains: `isArtist: true`  | 1       |
+| A user can only see this if the user object contains: `isArtist: true`  | 1 1     |
 | Clicking `Start an auction` links to a page with a form                 | 1 1     |
 | The form contains inputs for title, minimum bid & imageUrl              | 1 1     |
-| When the form is submitted a POST request is sent to the server         | 1       |
-| An Authorization header is set in the request                           | 1       |
-| The auth middleware is used on the server side to authorize the request | 1       |
-| The POST request updates the database with input from the user          | 1       |
-| The artwork saved in the database has the correct `userId`              | 1       |
-| The user sees a success message if the artwork was posted successfully  | 1       |
+| When the form is submitted a POST request is sent to the server         | 1 1     |
+| An Authorization header is set in the request                           | 1 1     |
+| The auth middleware is used on the server side to authorize the request | 1 1     |
+| The POST request updates the database with input from the user          | 1 1     |
+| The artwork saved in the database has the correct `userId`              | 1 1     |
+| The user sees a success message if the artwork was posted successfully  | 1 1     |
 | The success message is an alert, confirm or prompt popup or console.log | -1      |
-| Total                                                                   | 10      |
+| Total                                                                   | 10 10   |
 
 **Note: You can of course us an `Alert` bootstrap component as a message (just not window.alert())**
 

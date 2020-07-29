@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
 
 export default function Artwork({
   id,
@@ -13,7 +14,7 @@ export default function Artwork({
   const nrBids = bids.length;
 
   return (
-    <div key={id}>
+    <Container key={id}>
       <h1>{title}</h1>
       <img className="artImage" src={imageUrl} alt="art" />
       <span role="img" aria-labelledby="heart">
@@ -30,6 +31,6 @@ export default function Artwork({
           <Button>View details</Button>
         </Link>
       ) : null}
-    </div>
+    </Container>
   );
 }
