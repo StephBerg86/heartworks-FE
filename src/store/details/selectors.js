@@ -6,3 +6,7 @@ export function selectArtworkDetails(state) {
 export function selectHearts(state) {
   return state.details.hearts;
 }
+
+export function selectBids(state) {
+  return state.details.bids;
+}

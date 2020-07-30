@@ -148,3 +148,34 @@ export const postArt = (title, minimumBid, imageUrl, userId) => {
     }
   };
 };
+
+export const POST_BID_SUCCESS = "POST_BID_SUCCESS";
+export const postBidSuccess = (bid) => ({
+  type: POST_BID_SUCCESS,
+  payload: bid,
+});
+
+export const postBid = (amount) => {
+  return async (dispatch, getState) => {
+    const { artwork, token } = selectUser(getState());
+
+    const response = await axios.post(
+      `${apiUrl}/artwork/${artwork.id}/bid`,
+      {
+        amount,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log("bid!", response);
+    dispatch(
+      showMessageWithTimeout("success", false, response.data.message, 3000)
+    );
+    console.log("data.bid", response.data.bid);
+    dispatch(postBidSuccess(response.data.bid));
+    dispatch(appDoneLoading());
+  };
+};

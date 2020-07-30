@@ -22,7 +22,7 @@ export default function DisplayArt() {
 
   useEffect(() => {
     dispatch(fetchedHearts(id));
-  }, [dispatch, id, hearts]);
+  }, [dispatch, id]);
 
   function increment(event) {
     event.preventDefault();
@@ -40,7 +40,7 @@ export default function DisplayArt() {
         minimumBid={artwork.minimumBid}
       />
       <Hearts hearts={hearts} incr={increment} />
-      <Bids bid={artwork.bids} />
+      <Bids bid={artwork.bids} minimumBid={artwork.minimumBid} />
     </>
   );
 }

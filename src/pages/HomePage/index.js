@@ -5,7 +5,7 @@ import { selectArtwork } from "../../store/artwork/selectors";
 import { fetchArtwork } from "../../store/artwork/actions";
 
 export default function HomePage() {
-  const homepage = useSelector(selectArtwork);
+  const artwork = useSelector(selectArtwork);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,15 +14,15 @@ export default function HomePage() {
 
   return (
     <div className="displayArt">
-      {homepage.map((hp) => {
+      {artwork.map((art) => {
         return (
           <Artwork
-            key={hp.id}
-            id={hp.id}
-            title={hp.title}
-            bids={hp.bids}
-            hearts={hp.hearts}
-            imageUrl={hp.imageUrl}
+            key={art.id}
+            id={art.id}
+            title={art.title}
+            bids={art.bids}
+            hearts={art.hearts}
+            imageUrl={art.imageUrl}
             showLink={true}
           />
         );

@@ -3,6 +3,7 @@ import {
   LOGIN_SUCCESS,
   TOKEN_STILL_VALID,
   ART_POST_SUCCESS,
+  POST_BID_SUCCESS,
 } from "./actions";
 
 const initialState = {
@@ -26,6 +27,14 @@ export default (state = initialState, action) => {
       return { ...state, ...action.payload };
 
     case ART_POST_SUCCESS:
+      return {
+        ...state,
+        artwork: {
+          ...state.artwork,
+          bids: [...state.artwork.bids, action.payload],
+        },
+      };
+    case POST_BID_SUCCESS:
       return {
         ...state,
         artwork: {

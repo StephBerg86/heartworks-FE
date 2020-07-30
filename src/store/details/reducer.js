@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
         ...action.payload,
       };
     case INCREMENT_HEARTS:
-      return { ...state, ...action.payload, hearts: action.payload + 1 };
+      return { ...state, hearts: action.payload + 1 };
     default:
       return state;
   }

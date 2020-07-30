@@ -202,8 +202,8 @@ You will be provided with a wireframe that shows an overview of the app along wi
 | The new bid can be seen on the page                                                     | 1      |
 | An Authorization header is set in the request                                           | 1      |
 | The auth middleware is used on the server side to authorize the request                 | 1      |
-| The minimum value of the input for amount in the frontend is the highest bid amount + 1 | 1      |
-| If there are no bids yet the minimum value is the `minimumBid` value from the artwork   | 1      |
+| The minimum value of the input for amount in the frontend is the highest bid amount + 1 | 1 1    |
+| If there are no bids yet the minimum value is the `minimumBid` value from the artwork   | 1 1    |
 | The backend validates that the new bid is the highest bid so far                        | 2      |
 | Total                                                                                   | 11     |
 
@@ -242,10 +242,10 @@ You will be provided with a wireframe that shows an overview of the app along wi
 | ---------------------------------------------------------------------------------- | ------ |
 | A separate migration is created to add a column `isArtist` to our users table      | 3 3    |
 | A checkbox is added to the signup form                                             | 1 1    |
-| The `signUp` action also sends a value for `isArtist` when posting to the server   | 1      |
-| When the checkbox is checked on signup, the user created has `isArtist: true`      | 1      |
-| When the checkbox is not checked on signup, the user created has `isArtist: false` | 1      |
-| Total                                                                              | 7      |
+| The `signUp` action also sends a value for `isArtist` when posting to the server   | 1 1    |
+| When the checkbox is checked on signup, the user created has `isArtist: true`      | 1 1    |
+| When the checkbox is not checked on signup, the user created has `isArtist: false` | 1 1    |
+| Total                                                                              | 7 7    |
 
 ### 7. Finishing up
 

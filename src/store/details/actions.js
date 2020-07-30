@@ -1,6 +1,5 @@
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
-import { selectUser } from "../user/selectors";
 
 export const FETCH_ARTWORK_DETAILS = "FETCH_ARTWORK_DETAILS";
 const fetchArtworkDetails = (artwork) => ({
@@ -29,11 +28,9 @@ export const fetchArtworkById = (id) => {
 
 export const fetchedHearts = (id) => {
   return async (dispatch, getState) => {
-    const { hearts } = selectUser(getState());
-    const response = await axios.patch(`${apiUrl}/artwork/${id}/hearts`, {
-      hearts,
-    });
-    console.log("response data hearts", response.data.incrementHearts.hearts);
-    dispatch(fetchHearts(response.data.incrementHearts.hearts));
+    //const { hearts } = selectUser(getState());
+    const response = await axios.patch(`${apiUrl}/artwork/${id}/hearts`);
+    console.log("response data hearts", response.data.art.hearts);
+    dispatch(fetchHearts(response.data.art.hearts));
   };
 };
