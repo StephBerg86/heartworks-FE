@@ -6,3 +6,6 @@ https://stackoverflow.com/questions/46357533/how-to-add-delete-new-columns-in-se
 
 incrementing in sequelize
 https://sequelize.org/master/manual/model-instances.html
+
+checkbox
+https://react.school/ui/input

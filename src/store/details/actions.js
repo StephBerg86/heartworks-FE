@@ -33,7 +33,7 @@ export const fetchedHearts = (id) => {
     const response = await axios.patch(`${apiUrl}/artwork/${id}/hearts`, {
       hearts,
     });
-    console.log("response data hearts", response.data.hearts);
-    dispatch(fetchHearts(response.data.hearts));
+    console.log("response data hearts", response.data.incrementHearts.hearts);
+    dispatch(fetchHearts(response.data.incrementHearts.hearts));
   };
 };

@@ -177,11 +177,11 @@ You will be provided with a wireframe that shows an overview of the app along wi
 | -------------------------------------------------------------------------------------------- | ------ |
 | On the artwork's detail page we see a button with `give heart`                               | 1 1    |
 | When the `give heart` button is clicked the number of hearts changes on the page             | 1 1    |
-| Clicking the `give heart` button sends a PATCH request to the server                         | 1      |
-| Clicking the `give heart` button updates the `hearts` property of an artwork in the database | 1      |
-| The number of hearts an artwork has is also updated in the list of artworks on `/`           | 1      |
+| Clicking the `give heart` button sends a PATCH request to the server                         | 1 1    |
+| Clicking the `give heart` button updates the `hearts` property of an artwork in the database | 1 0.5  |
+| The number of hearts an artwork has is also updated in the list of artworks on `/`           | 1 0.5  |
 | You have to refresh to see the number of hearts update                                       | -1     |
-| Total                                                                                        | 5      |
+| Total                                                                                        | 5 4    |
 
 ### 4. As a user interested in buying people's art, I want to be able to make a bid, so I can show my interest in buying an artwork
 
@@ -194,7 +194,7 @@ You will be provided with a wireframe that shows an overview of the app along wi
 
 | Criteria                                                                                | Points |
 | --------------------------------------------------------------------------------------- | ------ |
-| When a user is logged in we can see an number input for amount and button to `Bid`      | 1      |
+| When a user is logged in we can see an number input for amount and button to `Bid`      | 1 1    |
 | When the `Bid` button is pressed, it makes a POST request to the server                 | 1      |
 | When the `Bid` button is pressed, A value for amount and email are sent to the server   | 0.5    |
 | When the `Bid` button is pressed, A bid is created in the database                      | 0.5    |

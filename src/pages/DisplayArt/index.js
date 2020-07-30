@@ -26,7 +26,6 @@ export default function DisplayArt() {
 
   function increment(event) {
     event.preventDefault();
-
     dispatch(incrementHearts(hearts));
   }
 

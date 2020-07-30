@@ -9,6 +9,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   name: null,
   email: null,
+  isArtist: false,
 };
 
 export default (state = initialState, action) => {

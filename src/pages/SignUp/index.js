@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -17,6 +19,7 @@ export default function SignUp() {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
+  const [allData, setAllData] = useState([]);
 
   useEffect(() => {
     if (token !== null) {
@@ -26,13 +29,15 @@ export default function SignUp() {
 
   function submitForm(event) {
     event.preventDefault();
-    dispatch(signUp(name, email, isArtist, password));
+    dispatch(signUp(email, isArtist, name, password));
+    setAllData([...allData, { name, email, isArtist, password }]);
     setEmail("");
     setPassword("");
     setIsArtist(false);
     setName("");
   }
 
+  console.log("New", allData);
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
@@ -56,17 +61,20 @@ export default function SignUp() {
             placeholder="Enter email"
             required
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
         <InputGroup.Prepend>
-          <InputGroup.Checkbox
-            aria-label="Checkbox"
-            checked={isArtist}
-            onChange={() => setIsArtist(!isArtist)}
+          <FormControlLabel
+            control={
+              <Checkbox
+                type="checkbox"
+                checked={isArtist}
+                onChange={(e) => {
+                  setIsArtist(e.target.checked);
+                }}
+              />
+            }
+            label="I am an artist"
           />
-          I am an artist
         </InputGroup.Prepend>{" "}
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
