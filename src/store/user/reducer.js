@@ -11,6 +11,7 @@ const initialState = {
   name: null,
   email: null,
   isArtist: false,
+  bids: [],
 };
 
 export default (state = initialState, action) => {

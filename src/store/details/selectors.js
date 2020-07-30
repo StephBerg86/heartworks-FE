@@ -4,6 +4,7 @@ export function selectArtworkDetails(state) {
 }
 
 export function selectHearts(state) {
+  console.log("select hearts", state.details.hearts);
   return state.details.hearts;
 }
 

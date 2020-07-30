@@ -121,7 +121,7 @@ export const postArt = (title, minimumBid, imageUrl, userId) => {
     try {
       const { id, token } = selectUser(getState());
       const response = await axios.post(
-        `${apiUrl}/artwork/${id}`,
+        `${apiUrl}/artwork/${id}/auction`,
         {
           title,
           minimumBid,
@@ -156,11 +156,12 @@ export const postBidSuccess = (bid) => ({
 });
 
 export const postBid = (amount) => {
+  console.log("joe");
   return async (dispatch, getState) => {
-    const { artwork, token } = selectUser(getState());
-
+    const { id, token } = selectUser(getState());
+    console.log("joehoe");
     const response = await axios.post(
-      `${apiUrl}/artwork/${artwork.id}/bid`,
+      `${apiUrl}/artwork/${id}/bid`,
       {
         amount,
       },
@@ -174,8 +175,8 @@ export const postBid = (amount) => {
     dispatch(
       showMessageWithTimeout("success", false, response.data.message, 3000)
     );
-    console.log("data.bid", response.data.bid);
-    dispatch(postBidSuccess(response.data.bid));
+    console.log("data.bid", response.data);
+    dispatch(postBidSuccess(response.data));
     dispatch(appDoneLoading());
   };
 };

@@ -5,10 +5,10 @@ import Container from "react-bootstrap/Container";
 export default function index({ hearts, incr }) {
   return (
     <Container>
-      <span role="img" aria-labelledby="heart">
-        💖
-      </span>{" "}
-      {hearts}
+      <span role="img" aria-labelledby="heart" className="heartsComp">
+        💖{hearts}
+      </span>
+
       <Button variant="danger" onClick={incr}>
         Give heart
       </Button>

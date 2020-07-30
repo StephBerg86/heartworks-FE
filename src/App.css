@@ -17,3 +17,13 @@
 .jumbotron {
   height: 2rem;
 }
+
+.container {
+  padding: 1rem 0rem;
+  width: 80%;
+  margin: auto;
+}
+
+.heartsComp {
+  margin: 1rem;
+}

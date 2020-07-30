@@ -178,8 +178,8 @@ You will be provided with a wireframe that shows an overview of the app along wi
 | On the artwork's detail page we see a button with `give heart`                               | 1 1    |
 | When the `give heart` button is clicked the number of hearts changes on the page             | 1 1    |
 | Clicking the `give heart` button sends a PATCH request to the server                         | 1 1    |
-| Clicking the `give heart` button updates the `hearts` property of an artwork in the database | 1 0.5  |
-| The number of hearts an artwork has is also updated in the list of artworks on `/`           | 1 0.5  |
+| Clicking the `give heart` button updates the `hearts` property of an artwork in the database | 1 1    |
+| The number of hearts an artwork has is also updated in the list of artworks on `/`           | 1      |
 | You have to refresh to see the number of hearts update                                       | -1     |
 | Total                                                                                        | 5 4    |
 

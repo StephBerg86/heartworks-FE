@@ -28,7 +28,7 @@ export default function Artwork({
       <br />
       {showLink ? (
         <Link to={`/artworks/${id}`}>
-          <Button>View details</Button>
+          <Button variant="danger">View details</Button>
         </Link>
       ) : null}
     </Container>

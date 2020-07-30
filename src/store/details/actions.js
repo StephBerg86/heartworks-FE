@@ -19,18 +19,18 @@ export const incrementHearts = (hearts) => ({
   payload: hearts,
 });
 
+export const fetchedHearts = (id) => {
+  return async (dispatch, getState) => {
+    const response = await axios.patch(`${apiUrl}/artwork/${id}/hearts`);
+    console.log("response data hearts", response.data.art.hearts);
+    dispatch(fetchHearts(response.data.art.hearts));
+    dispatch(incrementHearts(response.data.art.hearts));
+  };
+};
+
 export const fetchArtworkById = (id) => {
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}/artwork/${id}`);
     dispatch(fetchArtworkDetails(response.data.artwork));
-  };
-};
-
-export const fetchedHearts = (id) => {
-  return async (dispatch, getState) => {
-    //const { hearts } = selectUser(getState());
-    const response = await axios.patch(`${apiUrl}/artwork/${id}/hearts`);
-    console.log("response data hearts", response.data.art.hearts);
-    dispatch(fetchHearts(response.data.art.hearts));
   };
 };
