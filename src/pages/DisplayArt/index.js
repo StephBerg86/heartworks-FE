@@ -14,12 +14,7 @@ export default function DisplayArt() {
   const { id } = useParams();
   const artwork = useSelector(selectArtworkDetails);
   const hearts = useSelector(selectHearts);
-  console.log("hearts", hearts);
   const dispatch = useDispatch();
-
-  const increment = () => {
-    dispatch(incrementHearts());
-  };
 
   useEffect(() => {
     dispatch(fetchArtworkById(id));
@@ -28,6 +23,12 @@ export default function DisplayArt() {
   useEffect(() => {
     dispatch(fetchedHearts(id));
   }, [dispatch, id, hearts]);
+
+  function increment(event) {
+    event.preventDefault();
+
+    dispatch(incrementHearts(hearts));
+  }
 
   return (
     <>
@@ -39,8 +40,8 @@ export default function DisplayArt() {
         bids={artwork.bids}
         minimumBid={artwork.minimumBid}
       />
-      <Hearts hearts={hearts} />
-      <Bids bid={artwork.bids} incr={increment} />
+      <Hearts hearts={hearts} incr={increment} />
+      <Bids bid={artwork.bids} />
     </>
   );
 }
